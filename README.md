@@ -1,4 +1,4 @@
 # WanAndroid
 基于WanAndroid API 开发的应用案例
 
- ![image](https://github.com/guanjiayo/WanAndroid/pic/test.png)
+ ![测试图片](https://github.com/guanjiayo/WanAndroid/blob/master/pic/test.png)
