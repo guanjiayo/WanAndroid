@@ -1,11 +1,13 @@
 package zs.xmx.baselibrary.weight
 
-import android.app.Dialog
-import android.content.Context
 import android.graphics.drawable.AnimationDrawable
+import android.os.Bundle
 import android.view.Gravity
 import android.widget.ImageView
+import androidx.fragment.app.DialogFragment
 import zs.xmx.baselibrary.R
+import zs.xmx.baselibrary.base.dialog.base.BaseDialog
+import zs.xmx.baselibrary.base.dialog.base.BaseDialogVH
 
 /*
  * @创建者     默小铭
@@ -17,55 +19,46 @@ import zs.xmx.baselibrary.R
  */
 
 //改成私有构造,不让其他类以构造方式创建
-class ProgressLoadingDialog private constructor(context: Context, themeResId: Int) : Dialog(context, themeResId) {
+class ProgressLoadingDialog : BaseDialog() {
+    private lateinit var loadingView: ImageView
+    private lateinit var animDrawable: AnimationDrawable
+
+    override fun setLayout(): Int {
+        return R.layout.dialog_progress
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.LightProgressDialog)
+    }
+
+    override fun convertView(holder: BaseDialogVH, dialog: BaseDialog) {
+        //和获取动画视图
+        loadingView = holder.getView<ImageView>(R.id.iv_loading)
+        animDrawable = loadingView.background as AnimationDrawable
+        animDrawable.start()
+    }
 
     companion object {
-        private lateinit var mDialog: ProgressLoadingDialog
-        private var animDrawable: AnimationDrawable? = null
 
-        fun create(context: Context): ProgressLoadingDialog {
-            mDialog = ProgressLoadingDialog(context, R.style.LightProgressDialog)
-            mDialog.setContentView(R.layout.progress_dialog)
-            //设置Dialog属性
-            //dialog弹出后会点击屏幕或物理返回键,dialog消失
-            mDialog.setCancelable(true)
-            //dialog弹出后会点击屏幕，dialog不消失；点击物理返回键dialog消失
-            mDialog.setCanceledOnTouchOutside(false)
-            //dialog居中显示
-            mDialog.window!!.attributes!!.gravity = Gravity.CENTER
-
-            val lp = mDialog.window!!.attributes
-            lp!!.dimAmount = 0.2f
-            //设置属性
-            mDialog.window!!.attributes = lp
-
-            //获取动画视图
-            val loadingView = mDialog.findViewById<ImageView>(R.id.iv_loading)
-            animDrawable = loadingView.background as AnimationDrawable
-
-            return mDialog
-
-
+        fun create(): ProgressLoadingDialog {
+            val dialog = ProgressLoadingDialog()
+            dialog.setSize(120, 120)
+            dialog.setDimAmount(0.5f)//背景暗度
+            dialog.setGravity(Gravity.CENTER)//显示位置
+            dialog.setAnimStyle(R.style.ConfirmDialogAnim)//动画样式
+            return dialog
         }
 
 
     }
 
-    /*
-        显示加载对话框，动画开始
-     */
-    fun showLoading() {
-        super.show()
-        animDrawable?.start()
-    }
 
-    /*
-        隐藏加载对话框，动画停止
+    /**
+     * 隐藏加载对话框，动画停止
      */
-    fun hideLoading() {
+    override fun dismiss() {
         super.dismiss()
-        animDrawable?.stop()
+        animDrawable.stop()
     }
-
-
 }

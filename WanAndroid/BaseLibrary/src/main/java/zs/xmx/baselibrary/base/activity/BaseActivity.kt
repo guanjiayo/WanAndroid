@@ -41,7 +41,7 @@ import zs.xmx.baselibrary.weight.ProgressLoadingDialog
  *
  */
 abstract class BaseActivity : RxAppCompatActivity(), View.OnClickListener,
-        NetWorkReceiver.onNetWorkStateChangedListener, IBaseView {
+    NetWorkReceiver.onNetWorkStateChangedListener, IBaseView {
 
     //TAG 这里定义TAG,后面继承的Activity能直接使用
     open val tag: String = this@BaseActivity.javaClass.simpleName
@@ -81,7 +81,7 @@ abstract class BaseActivity : RxAppCompatActivity(), View.OnClickListener,
      * 设置一些基本属性
      */
     private fun setBaseConfig() {
-        mProgressLoadingDialog = ProgressLoadingDialog.create(this)
+        mProgressLoadingDialog = ProgressLoadingDialog.create()
 
         /**
          * 注册ARouter
@@ -89,7 +89,7 @@ abstract class BaseActivity : RxAppCompatActivity(), View.OnClickListener,
          * 然后子类就可以拿到ARouter注解传递的参数
          */
         ARouter.getInstance().inject(this)
-        
+
     }
 
 
@@ -193,11 +193,11 @@ abstract class BaseActivity : RxAppCompatActivity(), View.OnClickListener,
 
 
     override fun showLoading() {
-        mProgressLoadingDialog.showLoading()
+        mProgressLoadingDialog.show(supportFragmentManager)
     }
 
     override fun hideLoading() {
-        mProgressLoadingDialog.hideLoading()
+        mProgressLoadingDialog.dismiss()
     }
 
     override fun onError(errorInfo: String) {

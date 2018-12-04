@@ -111,7 +111,7 @@ abstract class RootFragment : RxFragment(), IBaseView, View.OnClickListener {
      * 设置一些基本属性
      */
     private fun setBaseConfig() {
-        mProgressLoadingDialog = ProgressLoadingDialog.create(mContext)
+        mProgressLoadingDialog = ProgressLoadingDialog.create()
     }
 
     /**
@@ -143,11 +143,11 @@ abstract class RootFragment : RxFragment(), IBaseView, View.OnClickListener {
     override fun onClick(v: View) {}
 
     override fun showLoading() {
-        mProgressLoadingDialog.showLoading()
+        mProgressLoadingDialog.show(mContext.supportFragmentManager)
     }
 
     override fun hideLoading() {
-        mProgressLoadingDialog.hideLoading()
+        mProgressLoadingDialog.dismiss()
     }
 
     override fun onError(errorInfo: String) {
