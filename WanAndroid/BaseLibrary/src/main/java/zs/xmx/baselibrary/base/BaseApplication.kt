@@ -9,7 +9,7 @@ import zs.xmx.baselibrary.constant.BaseConstant
 import zs.xmx.baselibrary.injection.component.AppComponent
 import zs.xmx.baselibrary.injection.component.DaggerAppComponent
 import zs.xmx.baselibrary.injection.module.AppModule
-import zs.xmx.baselibrary.net.HttpLoggerInterceptor
+import zs.xmx.baselibrary.net.interceptor.HttpLoggerInterceptor
 import zs.xmx.baselibrary.utils.AppManager
 
 

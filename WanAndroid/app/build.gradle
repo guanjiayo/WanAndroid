@@ -8,10 +8,10 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "zs.xmx.wanandroid"
-        minSdkVersion 18
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.android.minSdkVersion
+        targetSdkVersion rootProject.android.targetSdkVersion
+        versionCode rootProject.android.versionCode
+        versionName rootProject.android.versionName
     }
     buildTypes {
         release {

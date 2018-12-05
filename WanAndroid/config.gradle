@@ -34,7 +34,7 @@ ext {
                     "rxlifecycle-components": "com.trello.rxlifecycle3:rxlifecycle-components:$rxlifecycleVersion",
                     "rxlifecycle-kotlin"    : "com.trello.rxlifecycle3:rxlifecycle-kotlin:$rxlifecycleVersion",
                     "retrofit"              : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-                    "retrofit_adapter"      : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+                    "retrofit-adapter"      : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
                     "retrofit-gson"         : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
                     "retrofit-scalars"      : "com.squareup.retrofit2:converter-scalars:$retrofitVersion",
                     "constraint-layouts"    : 'com.android.support.constraint:constraint-layouts:1.1.0-beta4',

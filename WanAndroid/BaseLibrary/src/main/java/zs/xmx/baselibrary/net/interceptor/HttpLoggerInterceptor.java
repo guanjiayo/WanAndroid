@@ -1,4 +1,4 @@
-package zs.xmx.baselibrary.net;
+package zs.xmx.baselibrary.net.interceptor;
 
 import com.orhanobut.logger.Logger;
 import okhttp3.logging.HttpLoggingInterceptor;
