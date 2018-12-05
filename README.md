@@ -13,13 +13,13 @@
 > 目前只有登录注册相关接口页面可用,由于没服务器,暂时实现相关页面功能
 
 ![开发版项目架构](https://github.com/guanjiayo/WanAndroid/blob/master/WanAndroid/pic/test.png)
- 
+
  ## 相关页面效果图
- 
+
 ![首页](https://github.com/guanjiayo/WanAndroid/blob/master/WanAndroid/pic/home.png)
- 
+
 ![分类页面](https://github.com/guanjiayo/WanAndroid/blob/master/WanAndroid/pic/category.png)
- 
+
 ![详情页面](https://github.com/guanjiayo/WanAndroid/blob/master/WanAndroid/pic/detail.png)
 
 ![个人页面](https://github.com/guanjiayo/WanAndroid/blob/master/WanAndroid/pic/me.png)
@@ -41,16 +41,18 @@
 1. MVP架构
 2. kotlin语言(anko库,kotlin-extentions)
 3. Dagger注入框架
-4. 动态代理模式隔离第三方库
-5. 自定义AOP库实现登录拦截和动态权限申请
+4. 动态代理模式隔离第三方库,后续即使有新的网络框架库或图片库替换,只需新建接口即可,完全解耦
+5. 自定义AOP库实现登录拦截和动态权限申请,避免不同业务申请权限要写一大堆代码,在编译期插入插入代码也能避免如定位权限申请后不能及时拿到定位的问题
 6. 首页使用 ViewPager+ LazyViewPager + LazyFragment完美解决预加载问题
-7. Rx系列(Rxlifecycle+RxBus+RxJava+RxKotlin)
+7. Rx系列(Rxlifecycle+RxBus+RxJava+RxKotlin),响应式开发
 8. Retrofit + okhttp 网络库二次封装
 9. 自定义 ConverterFactory 处理统一的网络请求回调
-10. 尺寸限定符屏幕适配
+10. 尺寸限定符屏幕适配,比传统的
 11. Theme优化App启动黑白屏,启动速度
-12. ARouter 实现项目组件化
+12. ARouter 实现项目组件化,项目结构更加清晰,也方便协同开发,提高开发效率
 13. 封装分享库(ShareSDK),当作工具类API使用  (分享的内容要用bean类重新封装一下)
+14. 二次封装Dialog,使用DialogFragment实现的BaseDialog,避免了一些Dialog/AlertDialog生命周期bug,也更易设置弹出位置和样式
+15. 自定义StatusBar工具类,根据沉浸式状态栏真正的实现原理paddingop,一行代码实现沉浸式状态栏
 
 ### 需要完善的任务
  1. 学完Java服务器,把服务器搭建上去,将分类页面,登录注册等相关页面数据改回来
@@ -120,20 +122,17 @@
 
  1. "推送消息(sdk,Socket)"
 
+ 2.  即时通讯(待开发)
+ > 1. 接入通信SDK(环信)
+ > 2. 完全自定义聊天界面,避免跟换SDK又要重写一套聊天UI的麻烦
+
 ## 地图模块(待开发)
 
 > 实现一些基本的地图功能(二次开发)
 
-
 ## 订单状态模块(我的订单)
  1. "支付模块" 请求支付后,服务器返回的几种状态页面处理
  2. 收货地址相关
-
-## 即时通讯模块(待开发)
-
-1. 接入通信SDK(环信)
-2. 完全自定义聊天界面,避免跟换SDK又要重写一套聊天UI的麻烦
-
 
 ## 音视频模块(待开发)
 
@@ -147,7 +146,7 @@
 > Jpeg库,Fmod库1,FFmeng库,openCV,openGL库等
 > 美颜,聊天动效等实现
 
-## 串口模块(待开发)
+## 串口模块(待开发) 
 
 > 目前没设备,后面自己买个草莓派搞吧
 
