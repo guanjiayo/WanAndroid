@@ -67,7 +67,6 @@ dependencies {
     implementation rootProject.ext.dependencies["retrofit-adapter"]
     implementation rootProject.ext.dependencies["retrofit-gson"]
 
-
     //Gson
     api rootProject.ext.dependencies["gson"]
 
@@ -114,11 +113,11 @@ dependencies {
     api('com.joanzapata.iconify:android-iconify-ionicons:2.2.2', {
         exclude group: 'com.android.support'
     })
-    api('com.joanzapata.iconify:android-iconify-fontawesome:2.2.2', {
-        exclude group: 'com.android.support'
-    })
 
     //-------------------------------------分割线-----------------------------------------
 
+    //本地开发库
+    api project(':lib-aop')
+    api project(':ShareSdk')
 
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch"
+    android:background="@color/common_bg"
+    android:orientation="vertical"
+    >
+
+    <zs.xmx.baselibrary.weight.HeadBar
+        android:id="@+id/mHeaderBar"
+        style="@style/MatchWrap"
+        android:background="@color/common_blue"
+        app:titleText="忘记密码"
+        />
+
+    <LinearLayout
+        style="@style/MatchWrap.Vertical"
+        android:layout_margin="@dimen/common_margin"
+        android:background="@drawable/border_corner_all">
+
+        <LinearLayout
+            style="@style/MatchWrap.Horizontal">
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/common_line_height"
+                android:layout_weight="1.0"
+                android:background="@null"
+                android:drawableLeft="@drawable/icon_phone"
+                android:drawablePadding="@dimen/common_padding_small"
+                android:gravity="center_vertical"
+                android:hint="请输入手机号码"
+                android:inputType="phone"
+                android:paddingLeft="@dimen/common_padding_small"/>
+
+            <View style="@style/DividerFixedWidth.MarginTopBottom"/>
+
+            <zs.xmx.user.weight.VerifyButton
+                android:id="@+id/btn_getVerifyCode"
+                style="@style/WrapMatch"
+                android:background="@null"
+                android:gravity="center"
+                android:text="获取验证码"
+                android:textColor="@color/common_blue"/>
+        </LinearLayout>
+
+        <View style="@style/DividerFixedHeight"/>
+
+        <EditText
+            android:id="@+id/et_verifyCode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_line_height"
+            android:background="@null"
+            android:drawableLeft="@drawable/icon_verify_code"
+            android:drawablePadding="@dimen/common_padding_small"
+            android:gravity="center_vertical"
+            android:hint="请输入短信验证码"
+            android:inputType="number"
+            android:paddingLeft="@dimen/common_padding_small"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_next"
+        style="@style/FullBtnStyle"
+        android:text="下一步"
+        />
+</LinearLayout>

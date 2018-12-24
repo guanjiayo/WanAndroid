@@ -9,7 +9,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/BaseLibrary" />
+            <option value="$PROJECT_DIR$/HomeCenter" />
+            <option value="$PROJECT_DIR$/Provider" />
+            <option value="$PROJECT_DIR$/ShareSdk" />
+            <option value="$PROJECT_DIR$/UserCenter" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/lib-aop" />
+            <option value="$PROJECT_DIR$/lib-lazy-vp" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,0 +1,85 @@
+if (isHomeModule.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'android-aspectjx'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+android {
+    compileSdkVersion rootProject.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.android.minSdkVersion
+        targetSdkVersion rootProject.android.targetSdkVersion
+        versionCode rootProject.android.versionCode
+        versionName rootProject.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+
+            if (isUserModule.toBoolean()) {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            }
+
+            //layout目录下文件分包
+            res.srcDirs =
+                    [
+                            'src/main/res/layouts/activity',
+                            'src/main/res/layouts/fragment',
+                            'src/main/res/layouts/view',
+                            'src/main/res'
+                    ]
+        }
+    }
+
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    //底部导航栏
+    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.5'
+    //VLayout 增强版LayoutManager
+    implementation 'com.alibaba.android:vlayout:1.0.3@aar'
+    //别人封装的BaseAdapter
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    //跑马灯
+    implementation 'com.sunfusheng:marqueeview:1.3.1'
+    //轮播图
+    implementation 'com.youth.banner:banner:1.4.10'
+    //dagger2
+    kapt rootProject.ext.dependencies["dragger2-apt"]
+    //Arouter
+    kapt "com.alibaba:arouter-compiler:${arouter_compiler_version}"
+    //-------------------------本地库-------------------------------
+    implementation project(':Provider')
+    api project(':lib-lazy-vp')
+}

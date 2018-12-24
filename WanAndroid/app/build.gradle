@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'android-aspectjx'
 
 android {
     compileSdkVersion 28
@@ -23,8 +22,13 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
-    implementation project(':BaseLibrary')
+    implementation project(':Provider')
+
+    //按配置引入模块
+    if (isUserModule.toBoolean()) {
+        implementation project(':UserCenter')
+    }
+    if (isHomeModule.toBoolean()) {
+        implementation project(':HomeCenter')
+    }
 }
