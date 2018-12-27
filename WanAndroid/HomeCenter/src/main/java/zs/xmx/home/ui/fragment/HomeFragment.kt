@@ -40,6 +40,7 @@ import java.util.*
  */
 class HomeFragment : BaseFragment() {
 
+
     //不同item必须不同的viewtype
     internal var BANNER_VIEW_TYPE = 1
     internal var MENU_VIEW_TYPE = 2
@@ -61,8 +62,7 @@ class HomeFragment : BaseFragment() {
 //        mPresenter.mView = this
 //    }
 
-
-    override fun setLayout(): Int {
+    override fun setLayoutID(): Any {
         return R.layout.fragment_main
     }
 

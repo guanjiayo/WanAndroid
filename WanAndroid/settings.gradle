@@ -1,1 +1,1 @@
-include ':app', ':BaseLibrary', ':ShareSdk', ':Provider', ':lib-aop', ':UserCenter', ':lib-lazy-vp', ':HomeCenter'
+include ':app', ':Provider', ':lib-aop', ':UserCenter', ':lib-lazy-vp', ':HomeCenter', ':BaseLibrary'

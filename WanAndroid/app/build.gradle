@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'android-aspectjx'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.android.compileSdkVersion
     defaultConfig {
         applicationId "zs.xmx.wanandroid"
         minSdkVersion rootProject.android.minSdkVersion
@@ -18,16 +18,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':Provider')
 
-    //按配置引入模块
-    if (isUserModule.toBoolean()) {
-        implementation project(':UserCenter')
-    }
+    //todo 一个个引入
+//    //按配置引入模块
+//    if (isUserModule.toBoolean()) {
+//        implementation project(':UserCenter')
+//    }
+
     if (isHomeModule.toBoolean()) {
         implementation project(':HomeCenter')
     }

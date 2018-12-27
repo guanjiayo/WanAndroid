@@ -83,7 +83,7 @@ dependencies {
     api rootProject.ext.dependencies["rxlifecycle-kotlin"]
 
     //RxBus 事件总线
-    implementation rootProject.ext.dependencies["rx_bus"]
+    api rootProject.ext.dependencies["rx_bus"]
 
     //kotlin 相关
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -118,6 +118,5 @@ dependencies {
 
     //本地开发库
     api project(':lib-aop')
-    api project(':ShareSdk')
 
 }
